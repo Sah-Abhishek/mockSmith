@@ -133,7 +133,7 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				m.cursor++
 			}
 
-		case "tab", "shift+tab", "enter", "up", "down":
+		case "tab", "shift+tab", "enter":
 			if m.view == addView {
 				s := msg.String()
 
@@ -151,9 +151,9 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 					m.focusIndex++
 				}
 
-				if s == "up" || s == "shift+tab" {
+				if s == "shift+tab" {
 					m.focusIndex--
-				} else if s == "tab" || s == "down" {
+				} else if s == "tab" {
 					m.focusIndex++
 				}
 
